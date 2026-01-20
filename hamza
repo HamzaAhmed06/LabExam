@@ -1,0 +1,37 @@
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import static org.junit.Assert.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        NumberCheck nc = new NumberCheck();
+
+        int num = 7;
+
+        System.out.println("Number: " + num);
+        System.out.println("Is Even? " + nc.isEven(num));
+        System.out.println("Is Prime? " + nc.isPrime(num));
+
+        System.out.println("\nNow run JUnit Test Suite separately.");
+    }
+}
+
+class NumberCheck {
+
+    boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+
+    boolean isPrime(int number) {
+        if (number <= 1)
+            return false;
+
+        for (int i = 2; i <= number / 2; i++) {
+            if (number % i == 0)
+                return false;
+        }
+        return true;
+    }
+}
